@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import logo from "../assets/logos/logo.png"
 
 const Nav = () => {
@@ -5,7 +6,8 @@ const Nav = () => {
         <div className="w-full h-16 bg-[#48281A] flex justify-between items-center">
             <div className="flex items-center ml-5">
                 <img src={logo} alt="logo" className="w-10 h-10" />
-                <h1 className="text-2xl font-bold ml-3 text-white">Cafe Cultura</h1>
+                <Link to="/" className="text-2xl font-bold ml-3 text-white">Cafe Cultura</Link>
+                {/* <h1 className="text-2xl font-bold ml-3 text-white">Cafe Cultura</h1> */}
             </div>
             <div className="flex items-center">
                 {/* <div className="flex items-center">
