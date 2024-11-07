@@ -3,18 +3,21 @@ import Mission from './components/Mission'
 import Hero from './components/Hero'
 import Nav from './components/Nav'
 import About from './components/About'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import Contact from './pages/Contact'
 
 function App() {
+  const location = useLocation();
 
+  // Check if the current path is "/login"
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <>
-      <Nav />
+      {!isLoginPage && <Nav />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -23,11 +26,15 @@ function App() {
         <Route path="/mission" element={<Mission />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Hero />
-      <Mission />
-      <About />
+      {!isLoginPage && (
+        <>
+          <Hero />
+          <Mission />
+          <About />
+        </>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
